@@ -21,5 +21,5 @@ const port = process.env.PORT || 3000;
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`Servidor Node.js en ejecución en el puerto ${port}`);
+  console.log(`Servidor node.js en ejecución en el puerto ${port}`);
 });
