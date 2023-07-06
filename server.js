@@ -4,34 +4,34 @@ const fs = require("fs-extra");
 const copiarArchivo = require("./utils/manageFile")
 
 const app = express();
-const distPath = path.join(__dirname, "../PanelSG/dist/panel-sg/");
+//const distPath = path.join(__dirname, "../PanelSG/dist/panel-sg/");
 const copyPath = path.join(__dirname, "panel-sg/");
 
 async function iniciarServidor() {
   try {
     // Comprobar si la carpeta "panel-sg" existe
-    if (fs.existsSync(copyPath)) {
-      // Si existe, eliminarla
-      await fs.remove(copyPath);
-    }
+    //if (fs.existsSync(copyPath)) {
+    //  // Si existe, eliminarla
+    //  await fs.remove(copyPath);
+    //}
 
     // Crear una copia de la carpeta "panel-sg" en la raíz del servidor
-    await fs.copy(distPath, copyPath);
+    //await fs.copy(distPath, copyPath);
 
-    console.log("Carpeta copiada exitosamente.");
+    //console.log("Carpeta copiada exitosamente.");
 
     // Ruta para copiar y renombrar el archivo
-    const rutaArchivoOrigen = path.join(copyPath, "index.html");
-    const rutaArchivoDestino = path.join(copyPath, "404.html");
+    //const rutaArchivoOrigen = path.join(copyPath, "index.html");
+    //const rutaArchivoDestino = path.join(copyPath, "404.html");
 
-    copiarArchivo(rutaArchivoOrigen, rutaArchivoDestino, (err) => {
-      if (err) {
-        console.error("Error al copiar el archivo:", err);
-        return;
-      }
+    //copiarArchivo(rutaArchivoOrigen, rutaArchivoDestino, (err) => {
+    //  if (err) {
+    //    console.error("Error al copiar el archivo:", err);
+    //    return;
+    //  }
 
-      console.log("El archivo se ha copiado con éxito y se ha renombrado.");
-    });
+    //  console.log("El archivo se ha copiado con éxito y se ha renombrado.");
+    //});
 
     // Servir archivos estáticos de Angular
     app.use(express.static(copyPath));
