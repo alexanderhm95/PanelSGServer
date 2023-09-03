@@ -1,9 +1,12 @@
 const express = require("express");
+const compression = require('compression');
 const path = require("path");
 const fs = require("fs-extra");
 const copiarArchivo = require("./utils/manageFile")
 
 const app = express();
+app.use(compression());
+
 const copyPath = path.join(__dirname, "panel-sg/");
 
 async function iniciarServidor() {
